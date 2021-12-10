@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 public class Restaurante {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
