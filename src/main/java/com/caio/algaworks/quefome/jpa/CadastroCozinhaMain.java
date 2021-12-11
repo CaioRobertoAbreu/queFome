@@ -14,6 +14,8 @@ public class CadastroCozinhaMain {
 
         var cadastroCozinha = context.getBean(CadastroCozinha.class);
 
+        cadastroCozinha.cadastrar("Italiana");
+
         cadastroCozinha.listar()
                 .forEach(cozinha -> System.out.println(cozinha.getNome()));
     }
