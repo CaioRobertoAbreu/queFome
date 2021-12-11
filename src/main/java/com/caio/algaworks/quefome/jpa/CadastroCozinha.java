@@ -22,6 +22,11 @@ public class CadastroCozinha {
         return entityManager.createQuery("SELECT c FROM Cozinha c", Cozinha.class).getResultList();
     }
 
+    public Cozinha buscarPorId(Long id){
+
+        return entityManager.find(Cozinha.class, id);
+    }
+
     @Transactional
     public void cadastrar(String nome){
 

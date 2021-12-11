@@ -4,6 +4,8 @@ import com.caio.algaworks.quefome.QueFomeApplication;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
+import java.util.Random;
+
 public class CadastroCozinhaMain {
 
     public static void main(String[] args) {
@@ -18,5 +20,17 @@ public class CadastroCozinhaMain {
 
         cadastroCozinha.listar()
                 .forEach(cozinha -> System.out.println(cozinha.getNome()));
+
+        var id = criaRandomComBaseNaQuantidadeElementos(cadastroCozinha.listar().size());
+        var cozinha = cadastroCozinha.buscarPorId(id.longValue());
+
+
+        System.out.printf("%d - %s\n", cozinha.getId(), cozinha.getNome());
+
+    }
+
+    private static Integer criaRandomComBaseNaQuantidadeElementos(Integer qntElementos) {
+
+        return new Random().nextInt(qntElementos + 1);
     }
 }
