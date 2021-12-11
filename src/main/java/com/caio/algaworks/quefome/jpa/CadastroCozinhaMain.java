@@ -21,12 +21,16 @@ public class CadastroCozinhaMain {
         cadastroCozinha.listar()
                 .forEach(cozinha -> System.out.println(cozinha.getNome()));
 
-        var id = criaRandomComBaseNaQuantidadeElementos(cadastroCozinha.listar().size());
-        var cozinha = cadastroCozinha.buscarPorId(id.longValue());
+        var id = criaRandomComBaseNaQuantidadeElementos(cadastroCozinha.listar().size()).longValue();
+        var cozinha = cadastroCozinha.buscarPorId(id);
 
 
         System.out.printf("%d - %s\n", cozinha.getId(), cozinha.getNome());
 
+        cadastroCozinha.atualizar(id, "Japonesa");
+
+        cadastroCozinha.listar()
+                .forEach(cozinha2 -> System.out.printf("%d - %s\n", cozinha2.getId(), cozinha2.getNome()));
     }
 
     private static Integer criaRandomComBaseNaQuantidadeElementos(Integer qntElementos) {
