@@ -10,7 +10,7 @@ import java.util.List;
 public interface CozinhaRepository {
 
     @Transactional
-    void cadastrar(String nome);
+    Cozinha cadastrar(Cozinha cozinha);
 
     @Transactional
     Cozinha buscarPorId(Long id);

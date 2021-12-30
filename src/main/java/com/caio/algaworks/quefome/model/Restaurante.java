@@ -7,7 +7,6 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Table(name = "table_restaurante")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,7 +22,7 @@ public class Restaurante {
     @Setter
     private String nome;
 
-    @Column(name = "taxa_frete")
+    @Column(name = "taxa_frete", nullable = false)
     private BigDecimal taxaFrete;
 
     private Boolean ativo;
@@ -33,5 +32,9 @@ public class Restaurante {
 
     @Setter
     private LocalDateTime dataAtualizacao;
+
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private Cozinha cozinha;
 
 }

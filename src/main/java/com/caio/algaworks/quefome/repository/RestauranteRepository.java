@@ -10,7 +10,7 @@ import java.util.List;
 public interface RestauranteRepository {
 
     @Transactional
-    void cadastrar(Restaurante restaurante);
+    Restaurante cadastrar(Restaurante restaurante);
 
     @Transactional
     List<Restaurante> listarTodos();

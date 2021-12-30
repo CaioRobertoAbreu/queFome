@@ -29,10 +29,10 @@ public class CozinhaRepositoryImpl implements CozinhaRepository {
     }
 
     @Override
-    public void cadastrar(String nome){
+    public Cozinha cadastrar(Cozinha cozinha){
 
         System.out.println("CADASTRANDO COZINHA...");
-        entityManager.persist(new Cozinha(null, nome));
+        return entityManager.merge(cozinha);
     }
 
 

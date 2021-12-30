@@ -17,9 +17,9 @@ public class RestauranteRepositoryImpl implements RestauranteRepository {
     private EntityManager entityManager;
 
     @Override
-    public void cadastrar(Restaurante restaurante) {
+    public Restaurante cadastrar(Restaurante restaurante) {
 
-        entityManager.persist(restaurante);
+        return entityManager.merge(restaurante);
     }
 
     @Override

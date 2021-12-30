@@ -1,6 +1,7 @@
 package com.caio.algaworks.quefome.jpa;
 
 import com.caio.algaworks.quefome.QueFomeApplication;
+import com.caio.algaworks.quefome.model.Cozinha;
 import com.caio.algaworks.quefome.repository.implementation.CozinhaRepositoryImpl;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -17,7 +18,7 @@ public class CozinhaMain {
 
         var cadastroCozinha = context.getBean(CozinhaRepositoryImpl.class);
 
-        cadastroCozinha.cadastrar("Italiana");
+        cadastroCozinha.cadastrar(new Cozinha(null, "Italiana", null));
 
         cadastroCozinha.listar()
                 .forEach(cozinha -> System.out.println(cozinha.getNome()));

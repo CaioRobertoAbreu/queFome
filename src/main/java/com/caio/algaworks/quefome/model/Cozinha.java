@@ -6,8 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
-@Table(name = "table_cozinha")
 @Entity
 @Getter
 @AllArgsConstructor
@@ -21,5 +21,8 @@ public class Cozinha {
     @Column(nullable = false)
     @Setter
     private String nome;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "cozinha")
+    private List<Restaurante> restaurante;
 
 }
