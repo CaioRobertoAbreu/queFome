@@ -19,10 +19,10 @@ public interface CozinhaRepository {
     List<Cozinha> listar();
 
     @Transactional
-    void atualizar(Long idObjeto, String novoNomeObjeto);
+    Cozinha atualizar(Long idObjeto, String novoNomeObjeto);
 
     @Transactional
-    void deletarPorId(Long id);
+    void deletarPorId(Long idCozinha);
 
 
 

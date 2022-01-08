@@ -1,5 +1,6 @@
 package com.caio.algaworks.quefome.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 

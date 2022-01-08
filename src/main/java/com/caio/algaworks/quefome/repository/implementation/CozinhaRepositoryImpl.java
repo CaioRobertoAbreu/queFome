@@ -2,6 +2,7 @@ package com.caio.algaworks.quefome.repository.implementation;
 
 import com.caio.algaworks.quefome.model.Cozinha;
 import com.caio.algaworks.quefome.repository.CozinhaRepository;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
@@ -9,7 +10,7 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Component
-public class CozinhaRepositoryImpl implements CozinhaRepository {
+public class CozinhaRepositoryImpl implements com.caio.algaworks.quefome.repository.CozinhaRepository {
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -37,19 +38,32 @@ public class CozinhaRepositoryImpl implements CozinhaRepository {
 
 
     @Override
-    public void atualizar(Long idObjeto, String novoNomeObjeto){
+    public Cozinha atualizar(Long idObjeto, String novoNomeObjeto){
 
         System.out.println("ATUALIZANDO COZINHA....");
         var cozinha = buscarPorId(idObjeto);
+
+        if (cozinha == null) {
+
+            return null;
+        }
         System.out.println("Atualizando cozinha " + cozinha.getNome() + " para " + novoNomeObjeto);
         cozinha.setNome(novoNomeObjeto);
+
+        return cozinha;
     }
 
     @Override
-    public void deletarPorId(Long id){
+    public void deletarPorId(Long idCozinha){
+
+        var cozinha = buscarPorId(idCozinha);
+
+        if(cozinha == null) {
+
+            throw new EmptyResultDataAccessException(1);
+        }
 
         System.out.println("DELETANDO COZINHA...");
-        entityManager.remove(buscarPorId(id));
-
+        entityManager.remove(cozinha);
     }
 }
