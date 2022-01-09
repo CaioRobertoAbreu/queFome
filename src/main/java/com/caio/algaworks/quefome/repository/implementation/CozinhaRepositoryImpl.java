@@ -1,7 +1,6 @@
 package com.caio.algaworks.quefome.repository.implementation;
 
 import com.caio.algaworks.quefome.model.Cozinha;
-import com.caio.algaworks.quefome.repository.CozinhaRepository;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Component;
 

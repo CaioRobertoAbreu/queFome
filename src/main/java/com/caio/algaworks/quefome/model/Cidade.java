@@ -1,6 +1,7 @@
 package com.caio.algaworks.quefome.model;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
@@ -13,10 +14,12 @@ public class Cidade {
     private Long id;
 
     @Column(nullable = false)
+    @Setter
     private String nome;
 
     @ManyToOne
     @JoinColumn(nullable = false)
+    @Setter
     private Estado estado;
 
 }
