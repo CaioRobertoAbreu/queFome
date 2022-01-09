@@ -38,11 +38,20 @@ public class RestauranteRepositoryImpl implements RestauranteRepository {
     }
 
     @Override
-    public void atualizar(Long idObjeto, String novoNomeObjeto) {
+    public Restaurante atualizar(Long idObjeto, Restaurante atualizaRestaurante) {
 
         var restaurante = buscarPorId(idObjeto);
-        restaurante.setNome(novoNomeObjeto);
+
+        if (restaurante == null) {
+
+            return null;
+        }
+
+        restaurante.setNome(atualizaRestaurante.getNome());
+        restaurante.setTaxaFrete(atualizaRestaurante.getTaxaFrete());
         restaurante.setDataAtualizacao(LocalDateTime.now());
+
+        return restaurante;
     }
 
     @Override

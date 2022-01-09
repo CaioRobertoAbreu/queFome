@@ -19,7 +19,7 @@ public interface RestauranteRepository {
     Restaurante buscarPorId(Long id);
 
     @Transactional
-    void atualizar(Long idObjeto, String novoNomeObjeto);
+    Restaurante atualizar(Long idObjeto, Restaurante atualizaRestaurante);
 
     @Transactional
     void deletarPorId(Long id);

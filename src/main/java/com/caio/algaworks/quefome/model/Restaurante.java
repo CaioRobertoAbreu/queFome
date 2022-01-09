@@ -24,6 +24,7 @@ public class Restaurante {
     private String nome;
 
     @Column(name = "taxa_frete", nullable = false)
+    @Setter
     private BigDecimal taxaFrete;
 
     private Boolean ativo;
