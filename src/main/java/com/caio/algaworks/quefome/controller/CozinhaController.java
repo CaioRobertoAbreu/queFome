@@ -17,7 +17,6 @@ import java.util.List;
 @AllArgsConstructor
 public class CozinhaController {
 
-    private CozinhaRepositoryImpl cozinhaRepository;
     private CadastroCozinhaService cadastroCozinha;
 
     @GetMapping("/cozinhas")
